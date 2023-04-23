@@ -1,0 +1,13 @@
+<div class="video-card">
+    <div class="image-container">
+        <img class="image" [src]="video.imageSrc" alt="image description">
+    </div>
+    <div class="card-content">
+        <h2 class="video-title">{{ video.title }}</h2>
+        <p class="video-nb-of-episodes">{{ video.nbOfEpisodes }} episodes</p>
+        <ul class="video-list">
+            <li class="video-category" *ngFor="let category of video.categories">{{ category }}</li>
+        </ul>
+        <!-- ngIf to use <p class="video-to-continue"></p> -->
+    </div>
+</div>

@@ -1,0 +1,35 @@
+
+<h1>Disney +</h1>
+<h2>Do you want to watch something cool?</h2>
+
+<button (click)="onPremium()" [ngStyle]="{'backgroundColor': user.isVip && subscriptionChosen ? 'lightblue' : null}">Connect as VIP</button>
+<button (click)="onCheap()" [ngClass]="{'cheap-subscription': !user.isVip && subscriptionChosen }">Sorry, I am cheap</button>
+
+<div *ngIf="subscriptionChosen">
+<div *ngIf="user.isVip; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <p> Hi dear VIP {{ user.name }}</p>
+    <p>The last videos you have watched are:</p>
+    <div class="cards-container">
+        <app-video-card *ngFor="let oneVideo of user.videoList" [video]="oneVideo"></app-video-card>
+    </div>
+</ng-template>
+<ng-template #elseBlock>
+    <p> Sorry my dear you don't seem to be VIP</p>
+    <p>you can only watch 2 videos</p>
+    <button> click here to become VIP</button>
+</ng-template>
+</div>
+
+
+
+<!-- <div *ngIf="isPremium; else elseBlock">l’utilisateur {{ }} est premium, votre dernière vidéo regardéé est : {{ yourSerie }} </div>
+<ng-template #elseBlock>
+    <ul>
+        <li>Votre limite d’épisodes journaliers à visionner</li>
+        <li>Une offre pour passer au premium ?</li>
+        <button> click ici pour passer premium</button>
+    </ul>
+</ng-template>
+ -->
+

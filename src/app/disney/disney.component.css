@@ -1,0 +1,19 @@
+h1, h2 {
+    margin-bottom: 70px;
+}
+.cards-container {
+    display: flex;
+    gap: 20px;
+}
+.cheap-subscription {
+    background-color: rgb(182, 237, 182);
+    color: rgb(28, 28, 28);
+}
+button {
+    width: 150px;
+    height: 50px;
+    margin-right: 20px;
+    padding: 0;
+    border-radius: 18px;
+    border: 1px rgb(194, 173, 204) solid;
+}
