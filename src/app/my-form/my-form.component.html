@@ -18,14 +18,27 @@
         <label for="">Quantité</label>
         <input id="quantity-order" name="quantity-order" type="number" [(ngModel)]="order.quantity" #quantity="ngModel"required>
     </fieldset>
+      <!-- Message d'erreurs de quantity -->
+    <div *ngIf="quantity.errors">
+      <span *ngIf="quantity.errors?.['required']">Le champ quantité est requis</span>
+    </div>
     <fieldset>
         <label for="date-order">Date de commande</label>
         <input id="date-order" name="date-order" type="date" [(ngModel)]="order.date" #date="ngModel" required>
     </fieldset>
+      <!-- Message d'erreurs de date -->
+    <div *ngIf="date.errors">
+      <span *ngIf="date.errors?.['required']">Le champ email est requis</span>
+    </div>
     <fieldset>
         <label for="contact-order">Contact</label>
         <input id="contact-order" name="contact-order" type="email" [(ngModel)]="order.contact" #contact="ngModel" required email>
     </fieldset>
+     <!-- Message d'erreurs de contact -->
+    <div *ngIf="contact.errors">
+      <span *ngIf="contact.errors?.['required']">Le champ email est requis</span>
+      <span *ngIf="contact.errors?.['email']">L'adresse email doit être valide</span>
+    </div>
     <button type="submit">Valider</button>
     <button type="reset">Réinitialiser</button>
 </form>
